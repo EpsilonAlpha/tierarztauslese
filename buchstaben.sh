@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 url=https://www.tierarzt-onlineverzeichnis.de/tieraerzte/deutschland/0/
 
