@@ -17,7 +17,7 @@ for buchstabe in $buchstaben;do
 	url=$(cat $importdatei | grep $buchstabe | cut -d" " -f2)
 
 	# Export-Datei definieren
-	exportdatei=$buchstabe_links.txt
+	exportdatei=""$buchstabe"_links.txt"
 	# Datei leeren
 	touch $exportdatei
 	if [ -f $exportdatei ];then
