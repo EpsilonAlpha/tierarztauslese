@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash 
 
 # Variablen aufräumen
 unset url \
