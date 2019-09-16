@@ -17,6 +17,7 @@ dateiname=buchstaben_links.txt
 # Datei leeren
 touch $dateiname
 
+# Buchstaben auslesen und die Links in Datei schreiben
 for buchstabe in $buchstaben;do
 	burl=$(curl -s $url | grep ">$buchstabe<" | cut -d "\"" -f$feldnummer)
 	echo "$buchstabe $burl" >> $dateiname
