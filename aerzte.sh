@@ -15,9 +15,13 @@ for buchstabe in $buchstaben;do
 			ortsid=$(echo $link | cut -d" " -f1 | cut -d"/" -f6,7 | sed -e "s/\///g")
 			# Datei-Name zusammenstellen
 			exportdatei="Buchstabe"$buchstabe"/"$ortsid"_aerzte.txt"
+
+			# Alte Textdateien aufräumen
+			cd "Buchstabe$buchstabe";rm *.txt; cd ..
+
 			# Datei erstellen bzw. leeren
 			touch $exportdatei
 
-			curl -s $link | sed "s/\t\t*//g" | sed -n "/<div class=\"arzt-ergebnis-box first\">/,/<\/div>/p" | grep "www\.tierarzt-onlineverzeichnis\.de\/tierarztpraxis\/" | cut -d"\"" -f2,5 | sed -e "s/\"  > / /g" -e "s/ <\/a>//g" >> $exportdatei
+			curl -s "$link" | sed "s/\t\t*//g" | sed -n "/<div class=\"arzt-ergebnis-box first\">/,/<\/div>/p" | grep "www\.tierarzt-onlineverzeichnis\.de\/tierarztpraxis\/" | cut -d"\"" -f2,5 | sed -e "s/\"  > / /g" -e "s/ <\/a>//g" >> $exportdatei
 		done
 done
