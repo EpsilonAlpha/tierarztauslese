@@ -2,6 +2,7 @@
 
 # Variablen aufräumen
 unset url \
+buchstabe \
 buchstaben \
 feldnummer \
 burl \
