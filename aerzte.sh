@@ -18,6 +18,6 @@ for buchstabe in $buchstaben;do
 			# Datei erstellen bzw. leeren
 			touch $exportdatei
 
-			curl -s $link | sed "s/\t\t*//g" | sed -n "/<div class=\"arzt-ergebnis-box first\">/,/<\/div>/p" | grep "www\.tierarzt-onlineverzeichnis\.de\/tierarztpraxis\/" | cut -d"\"" -f2,5 | sed -e "s/  > / /g" -e "s/ <\/a>//g" >> $exportdatei
+			curl -s $link | sed "s/\t\t*//g" | sed -n "/<div class=\"arzt-ergebnis-box first\">/,/<\/div>/p" | grep "www\.tierarzt-onlineverzeichnis\.de\/tierarztpraxis\/" | cut -d"\"" -f2,5 | sed -e "s/\"  > / /g" -e "s/ <\/a>//g" >> $exportdatei
 		done
 done
