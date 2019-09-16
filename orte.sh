@@ -16,4 +16,6 @@ sed -e 's/<\/li>/\n/g' \
 -e 's/<a href=//g' \
 -e 's/title=//g' \
 -e 's/>//g' \
--e 's/<\/a//g'
+-e 's/<\/a//g' | \
+cut -d"'" -f-4 | \
+sed -e "s/'//g"
