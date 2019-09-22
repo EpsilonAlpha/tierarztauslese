@@ -11,6 +11,9 @@ fehlerlinks
 buchstaben="A B C D E F G H I J K L M N O P Q R S T U V W X Z"
 fehlerlinks=fehlerlinks.txt
 
+# alte Fehlersuch-Datei löschen
+rm $fehlerlinks
+
 for buchstabe in $buchstaben;do
 		for link in $(cat "$buchstabe"_links.txt );do
 			if [[ "$link" == '' ]]; then 
