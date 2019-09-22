@@ -18,7 +18,7 @@ for buchstabe in $buchstaben;do
 				ortsid=$(echo "$link" | cut -d" " -f1 | cut -d"/" -f6,7 | sed -e "s/\///g")
 				if [[ "$ortsid" == '' ]];then
 					# Datei-Name zusammenstellen
-					exportdatei="Buchstabe$buchstabe/"$ortsid"_aerzte.txt"
+					exportdatei=Buchstabe$buchstabe/"$ortsid"_aerzte.txt
 
 					# Alte Textdateien aufräumen
 					rm -rf Buchstabe$buchstabe 
