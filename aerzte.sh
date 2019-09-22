@@ -18,17 +18,21 @@ for buchstabe in $buchstaben;do
 		for link in $(cat "$buchstabe"_links.txt );do
 			if [[ "$link" == '' ]]; then 
 				# ortsid ermitteln für den Dateinamen hernehmen
-				ortsid=$(echo "$link" | cut -d" " -f1 | cut -d"/" -f6,7 | sed -e "s/\///g")
+				ortsid=$(echo "$link" \
+				| cut -d" " -f1 \
+				| cut -d"/" -f6,7 \
+				| sed -e "s/\///g")
+				
 				if [[ "$ortsid" == '' ]];then
 					# Datei-Name zusammenstellen
 					exportdatei=Buchstabe$buchstabe/"$ortsid"_aerzte.txt
 
 					# Alte Textdateien aufräumen
-					rm -rf Buchstabe$buchstabe 
-					mkdir Buchstabe$buchstabe
+					rm -rf Buchstabe"$buchstabe" 
+					mkdir Buchstabe"$buchstabe"
 
 					# Datei erstellen bzw. leeren
-					touch $exportdatei
+					touch "$exportdatei"
 
 					curl -s "$link" \
 					| sed "s/\t\t*//g" \
@@ -36,7 +40,7 @@ for buchstabe in $buchstaben;do
 					| grep "www\.tierarzt-onlineverzeichnis\.de\/tierarztpraxis\/" \
 					| cut -d"\"" -f2,5 \
 					| sed -e "s/\"  > / /g" -e "s/ <\/a>//g" \
-					>> $exportdatei
+					>> "$exportdatei"
 				else
 					echo "Bei Link \"$link\" kam nix rüber als ortsid" > $fehlerlinks
 					exit 1
