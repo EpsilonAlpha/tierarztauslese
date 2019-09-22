@@ -45,7 +45,7 @@ for buchstabe in $buchstaben;do
 					| sed -e "s/\"  > / /g" -e "s/ <\/a>//g" \
 					>> "$exportdatei"
 				else
-					echo "Bei Link \"$link\" kam nix rüber als ortsid" > $fehlerlinks
+					echo "Bei Link \"$link\" kam nix rüber als ortsid außer >$ortsid<" > $fehlerlinks
 					exit 1
 				fi
 			else
