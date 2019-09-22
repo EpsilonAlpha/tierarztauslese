@@ -19,6 +19,9 @@ for buchstabe in $buchstaben;do
 			if [[ "$link" == '' ]]; then 
 				# ortsid ermitteln für den Dateinamen hernehmen
 				ortsid=$(echo "$link" \
+				| tr -s ' ' \
+				| tr -d '\t' \
+				| grep 'h.*$' \
 				| cut -d" " -f1 \
 				| cut -d"/" -f6,7 \
 				| sed -e "s/\///g")
