@@ -13,10 +13,10 @@ fehlerlinks=fehlerlinks.txt
 
 for buchstabe in $buchstaben;do
 		for link in $(cat "$buchstabe"_links.txt );do
-			if [ $link == '' ]; then 
+			if [[ "$link" == '' ]]; then 
 				# ortsid ermitteln für den Dateinamen hernehmen
 				ortsid=$(echo "$link" | cut -d" " -f1 | cut -d"/" -f6,7 | sed -e "s/\///g")
-				if [ $ortsid == '' ];then
+				if [[ "$ortsid" == '' ]];then
 					# Datei-Name zusammenstellen
 					exportdatei="Buchstabe"$buchstabe"/"$ortsid"_aerzte.txt"
 
