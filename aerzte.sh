@@ -17,7 +17,7 @@ rm $fehlerlinks
 for buchstabe in $buchstaben;do
 		for link in $(cat "$buchstabe"_links.txt );do
 			echo "Link ist $link"
-			if [[ ! -z $link ]]; then 
+			if [[ ! "$link" == '' ]]; then 
 				# ortsid ermitteln für den Dateinamen hernehmen
 				ortsid=$(echo "$link" \
 				| tr -s ' ' \
@@ -27,7 +27,7 @@ for buchstabe in $buchstaben;do
 				| cut -d"/" -f6,7 \
 				| sed -e "s/\///g")
 				
-				if [[ "$ortsid" == '' ]];then
+				if [[ ! "$ortsid" == '' ]];then
 					# Datei-Name zusammenstellen
 					exportdatei=Buchstabe$buchstabe/"$ortsid"_aerzte.txt
 
