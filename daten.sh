@@ -18,6 +18,11 @@ ausgabeendung=csv
 
 einzeln() {
   buchstabe="$1"
+  
+  if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
+    rm Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung
+  fi
+  
   for file in $(ls -f Buchstabe$buchstabe/*.txt);do
     # jeden Link, einen nach dem Anderen abarbeiten
     for link in $(cat "$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$');do
@@ -35,7 +40,7 @@ einzeln() {
         sed -e ':a;N;$!ba;s/\n/\";\"/g' |\
         sed -e 's/^/\"/' |\
         sed -e 's/$/\"/' \
-        >> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung
+        >> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
     done
   done
 }
