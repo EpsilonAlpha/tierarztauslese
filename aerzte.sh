@@ -53,6 +53,9 @@ for buchstabe in $buchstaben;do
 				# Generelle Fehlermeldung
 				echo "Bei Link \"$link\" kam gar nix rüber" > $fehlerlinks
 				
+				# Leerzeile
+				echo " "
+				
 				# Ergebnis nach jedem Filter
 				echo "Prüfen wir die Filter:" >> $fehlerlinks
 				
