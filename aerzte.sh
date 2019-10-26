@@ -17,6 +17,7 @@ rm $fehlerlinks
 for buchstabe in $buchstaben;do
 		for link in $(cat "$buchstabe"_links.txt );do
 			echo "Link ist $link"
+			link=""
 			if [[ -z $link ]]; then 
 				# ortsid ermitteln für den Dateinamen hernehmen
 				ortsid=$(echo "$link" \
