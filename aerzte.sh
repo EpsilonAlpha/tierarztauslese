@@ -54,10 +54,13 @@ for buchstabe in $buchstaben;do
 				echo "Bei Link \"$link\" kam gar nix rüber" > $fehlerlinks
 				
 				# Leerzeile
-				echo " "
+				echo " " >> $fehlerlinks
 				
 				# Ergebnis nach jedem Filter
 				echo "Prüfen wir die Filter:" >> $fehlerlinks
+				
+				# Leerzeile
+				echo " " >> $fehlerlinks
 				
 				ortsid=$(echo "$link")
 				echo "echo \$link gibt: $ortsid" >> $fehlerlinks
