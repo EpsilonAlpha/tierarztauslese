@@ -15,7 +15,7 @@ fehlerlinks=fehlerlinks.txt
 rm $fehlerlinks
 
 for buchstabe in $buchstaben;do
-		for link in $(cat "$buchstabe"_links.txt | grep -e '^http.*$');do
+		for link in $(cat "$buchstabe"_links.txt | head -n1);do
 			echo "Link ist $link"
 			if [[ ! "$link" == '' ]]; then 
 				# ortsid ermitteln für den Dateinamen hernehmen
