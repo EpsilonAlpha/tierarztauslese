@@ -14,6 +14,16 @@ fehlerlinks=fehlerlinks.txt
 # alte Fehlersuch-Datei löschen
 rm $fehlerlinks
 
+aufräumen () {
+	for buchstabe in $buchstaben;do
+		# Alte Textdateien aufräumen
+		rm -rf Buchstabe"$buchstabe" 
+		mkdir Buchstabe"$buchstabe"
+	done
+}
+
+aufräumen;
+
 for buchstabe in $buchstaben;do
 		for link in $(cat "$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$');do
 			echo "Link ist $link"
@@ -30,10 +40,6 @@ for buchstabe in $buchstaben;do
 				if [[ ! "$ortsid" == '' ]];then
 					# Datei-Name zusammenstellen
 					exportdatei=Buchstabe$buchstabe/"$ortsid"_aerzte.txt
-
-					# Alte Textdateien aufräumen
-					rm -rf Buchstabe"$buchstabe" 
-					mkdir Buchstabe"$buchstabe"
 
 					# Datei erstellen bzw. leeren
 					touch "$exportdatei"
