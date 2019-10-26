@@ -46,10 +46,15 @@ for buchstabe in $buchstaben;do
 					>> "$exportdatei"
 				else
 					echo "Bei Link \"$link\" kam nix rüber als ortsid außer >$ortsid<" > $fehlerlinks
+					cat $fehlerlinks
 					exit 1
 				fi
 			else
 				echo "Bei Link \"$link\" kam gar nix rüber" > $fehlerlinks
+				echo "Prüfen wir die Filter:" >> $fehlerlinks
+				echo "echo \$link gibt: $(echo \"$link\")"
+				echo 
+				cat $fehlerlinks
 				exit 1
 			fi
 		done
