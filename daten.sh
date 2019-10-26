@@ -50,8 +50,7 @@ einzeln() {
 
 # Alle daten?.csv's zusammenfassen
 
-
-
+# Auswahl des Modus
 case $modus in 
   * )
     alles
@@ -59,3 +58,4 @@ case $modus in
   A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Z )
     einzeln $modus
   ;;
+esac
