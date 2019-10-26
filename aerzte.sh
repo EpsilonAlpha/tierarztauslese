@@ -50,10 +50,34 @@ for buchstabe in $buchstaben;do
 					exit 1
 				fi
 			else
+				# Generelle Fehlermeldung
 				echo "Bei Link \"$link\" kam gar nix rüber" > $fehlerlinks
+				
+				# Ergebnis nach jedem Filter
 				echo "Prüfen wir die Filter:" >> $fehlerlinks
-				echo "echo \$link gibt: $(echo \"$link\")"
-				echo 
+				
+				ortsid=$(echo "$link")
+				echo "echo \$link gibt: $ortsid" >> $fehlerlinks
+				
+				ortsid=$(echo "$ortsid"| tr -s ' ')
+				echo "plus tr -s \' \' gibt: $ortsid" >> $fehlerlinks
+				
+				ortsid=$(echo "$ortsid"| tr -d '\t')
+				echo "plus tr -d \'\\t\' gibt: $ortsid" >> $fehlerlinks
+				
+				ortsid=$(echo "$ortsid"| grep 'h.*$')
+				echo "plus grep \'h\.\*\$\' gibt: $ortsid" >> $fehlerlinks
+				
+				ortsid=$(echo "$ortsid"| cut -d" " -f1)
+				echo "plus cut -d\" \" -f1 gibt: $ortsid" >> $fehlerlinks
+				
+				ortsid=$(echo "$ortsid"| cut -d"/" -f6,7)
+				echo "plus cut -d\"/\" -f6,7 gibt: $ortsid" >> $fehlerlinks
+				
+				ortsid=$(echo "$ortsid"| sed -e "s/\///g")
+				echo "plus sed -e \"s/\///g\" gibt: $ortsid" >> $fehlerlinks
+				
+				# Ausgabe der Fehlerdatei
 				cat $fehlerlinks
 				exit 1
 			fi
