@@ -1,2 +1,5 @@
 # Ignoriere Text-Dateien
 *.txt
+
+# Ignoriere CSV-Dateien also Ergebnis-Dateien
+*.csv
