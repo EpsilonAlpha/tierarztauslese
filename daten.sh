@@ -45,18 +45,6 @@ einzeln() {
   done
 }
 
-# jeden Link, einen nach dem Anderen abarbeiten und folgendes extrahieren:
-# # Name
-# # Strasse
-# # Hausnummer
-# # Telefon
-# # Mobil
-# # # Abfrage ob Mobilfunk leer ist
-# # Fax
-# # E-Mail
-# # Webseite
-# > diese Informationen im CSV-Format zu ./Buchstabe?/daten?.csv hinzufügen
-
 # Alle daten?.csv's zusammenfassen
 
 # Auswahl des Modus
