@@ -28,7 +28,7 @@ einzeln() {
       # Ausgabe des Links zur Diagnose
       echo "Link ist $link";
       
-      ausgabe=$(curl $link)
+      ausgabe=$(curl -v $link)
       ausgabe=$(echo $ausgabe | sed -n "/<div class=\"do_adresse\">/,/<\/div>/p");
       ausgabe=$(echo $ausgabe | tr -s ' ')
       ausgabe=$(echo $ausgabe | tr -d '\t')
