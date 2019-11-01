@@ -25,7 +25,7 @@ einzeln() {
   
   for file in $(ls -f Buchstabe$buchstabe/*.txt);do
     # jeden Link, einen nach dem Anderen abarbeiten
-    for link in $(cat "$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$');do
+    for link in $(cat "$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$' | head -1 );do
       # Ausgabe des Links zur Diagnose
       echo "Link ist $link"
       
