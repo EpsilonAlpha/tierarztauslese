@@ -40,7 +40,7 @@ einzeln() {
         sed -e ':a;N;$!ba;s/\n/\";\"/g' |\
         sed -e 's/^/\"/' |\
         sed -e 's/$/\"/' \
-        >> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
+        >> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &   
     done
   #done
   
