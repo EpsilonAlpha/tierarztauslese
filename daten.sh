@@ -23,7 +23,7 @@ einzeln() {
     rm Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung
   fi
   
-  for file in $(ls -f Buchstabe$buchstabe/*.txt);do
+  #for file in $(ls -f Buchstabe$buchstabe/*.txt);do
     # jeden Link, einen nach dem Anderen abarbeiten
     for link in $(cat "$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$' | head -1 );do
       # Ausgabe des Links zur Diagnose
@@ -42,7 +42,15 @@ einzeln() {
         sed -e 's/$/\"/' \
         >> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
     done
-  done
+  #done
+  
+  if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
+    echo "Der Inhalt von $ausgabename$buchstabe.$ausgabeendung ist:";
+    # Das Ergebnis ausgeben
+    cat Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung;
+  else
+    echo "Die Datei $ausgabename$buchstabe.$ausgabeendung ist nicht vorhanden!";
+  fi
 }
 
 # jeden Link, einen nach dem Anderen abarbeiten und folgendes extrahieren:
