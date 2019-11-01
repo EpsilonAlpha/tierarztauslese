@@ -10,7 +10,7 @@ modus=$1
 
 # Statische Variablen
 buchstaben="A B C D E F G H I J K L M N O P Q R S T U V W X Z"
-workdir=/home/root/tierarztauslese
+workdir=/root/tierarztauslese
 fehlerlinks=fehlerlinks.txt
 ausgabename=daten
 ausgabeendung=csv
