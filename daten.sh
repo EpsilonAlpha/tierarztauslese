@@ -29,7 +29,7 @@ einzeln() {
       # Ausgabe des Links zur Diagnose
       echo "Link ist $link"
       
-      curl -s $link |\
+      ausgabe=$(curl -s $link |\
         sed -n "/<div class=\"do_adresse\">/,/<\/div>/p"  |\
         tr -s ' ' |\
         tr -d '\t' |\
@@ -39,8 +39,9 @@ einzeln() {
         grep -vE 'Tierarztpraxis|Telefon|Mobil|Fax|E-Mail' |\
         sed -e ':a;N;$!ba;s/\n/\";\"/g' |\
         sed -e 's/^/\"/' |\
-        sed -e 's/$/\"/' \
-        >> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &   
+        sed -e 's/$/\"/' )
+        echo $ausgabe
+        #>> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
     done
   #done
   
