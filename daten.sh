@@ -10,6 +10,7 @@ modus=$1
 
 # Statische Variablen
 buchstaben="A B C D E F G H I J K L M N O P Q R S T U V W X Z"
+workdir=/home/root/tierarztauslese
 fehlerlinks=fehlerlinks.txt
 ausgabename=daten
 ausgabeendung=csv
@@ -25,7 +26,7 @@ einzeln() {
   
   #for file in $(ls -f Buchstabe$buchstabe/*.txt);do
     # jeden Link, einen nach dem Anderen abarbeiten
-    for link in $(cat "$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$' | head -1 );do
+    for link in $(cat $workdir/"$buchstabe"_links.txt | cut -d" " -f1 | grep -e '^http.*$' | head -1 );do
       # Ausgabe des Links zur Diagnose
       echo "Link ist $link"
       
