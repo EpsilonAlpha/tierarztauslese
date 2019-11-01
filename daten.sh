@@ -19,9 +19,9 @@ ausgabeendung=csv
 einzeln() {
   buchstabe="$1"
   
-  if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
-    rm Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung
-  fi
+  #if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
+  #  rm Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung
+  #fi
   
   #for file in $(ls -f Buchstabe$buchstabe/*.txt);do
     # jeden Link, einen nach dem Anderen abarbeiten
@@ -45,13 +45,13 @@ einzeln() {
     done
   #done
   
-  if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
-    echo "Der Inhalt von $ausgabename$buchstabe.$ausgabeendung ist:";
+  #if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
+  #  echo "Der Inhalt von $ausgabename$buchstabe.$ausgabeendung ist:";
     # Das Ergebnis ausgeben
-    cat Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung;
-  else
-    echo "Die Datei $ausgabename$buchstabe.$ausgabeendung ist nicht vorhanden!";
-  fi
+  #  cat Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung;
+  #else
+  #  echo "Die Datei $ausgabename$buchstabe.$ausgabeendung ist nicht vorhanden!";
+  #fi
 }
 
 # jeden Link, einen nach dem Anderen abarbeiten und folgendes extrahieren:
