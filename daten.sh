@@ -41,8 +41,7 @@ einzeln() {
       ausgabe=$(echo $ausgabe | sed -e 's/$/\"/')
       echo $ausgabe
       #>> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
-    done
-  #done
+ 
   
   #if [ -f Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung ];then
   #  echo "Der Inhalt von $ausgabename$buchstabe.$ausgabeendung ist:";
