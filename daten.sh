@@ -29,7 +29,7 @@ einzeln() {
       echo "Link ist $link";
       
       ausgabe=$(curl -s $link)
-      ausgabe=$(echo $ausgabe | sed -n '/<div class=\"do_adresse\">/,/<\/div>/p');
+      ausgabe=$(echo $ausgabe | sed -n "/<div class=\"do_adresse\">/,/<\/div>/p");
       ausgabe=$(echo $ausgabe | tr -s ' ')
       ausgabe=$(echo $ausgabe | tr -d '\t')
       ausgabe=$(echo $ausgabe | cut -d">" -f2)
