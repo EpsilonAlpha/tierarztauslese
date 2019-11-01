@@ -31,18 +31,18 @@ einzeln() {
       echo "Link ist $link"
       
       ausgabe=$(curl -s $link |\
-        sed -n "/<div class=\"do_adresse\">/,/<\/div>/p"  |\
-        tr -s ' ' |\
-        tr -d '\t' |\
-        cut -d">" -f2 |\
-        cut -d"<" -f1 |\
-        sed -e '/^[[:space:]]*$/d' |\
-        grep -vE 'Tierarztpraxis|Telefon|Mobil|Fax|E-Mail' |\
-        sed -e ':a;N;$!ba;s/\n/\";\"/g' |\
-        sed -e 's/^/\"/' |\
-        sed -e 's/$/\"/' )
-        echo $ausgabe
-        #>> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
+      ausgabe=$(echo $ausgabe | sed -n "/<div class=\"do_adresse\">/,/<\/div>/p")
+      ausgabe=$(echo $ausgabe | tr -s ' ')
+      ausgabe=$(echo $ausgabe | tr -d '\t')
+      ausgabe=$(echo $ausgabe | cut -d">" -f2)
+      ausgabe=$(echo $ausgabe | cut -d"<" -f1)
+      ausgabe=$(echo $ausgabe | sed -e '/^[[:space:]]*$/d')
+      ausgabe=$(echo $ausgabe | grep -vE 'Tierarztpraxis|Telefon|Mobil|Fax|E-Mail')
+      ausgabe=$(echo $ausgabe | sed -e ':a;N;$!ba;s/\n/\";\"/g')
+      ausgabe=$(echo $ausgabe | sed -e 's/^/\"/')
+      ausgabe=$(echo $ausgabe | sed -e 's/$/\"/')
+      echo $ausgabe
+      #>> Buchstabe$buchstabe/$ausgabename$buchstabe.$ausgabeendung &
     done
   #done
   
